@@ -4,6 +4,8 @@ from rest_framework.response import Response
 from .serializers import UserSerializer
 from rest_framework import status
 from .models import User
+# import smtplib
+# from email.message import EmailMessage
 
 
 # Create your views here.
@@ -22,3 +24,7 @@ class UserCreate(APIView):
         
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+# class GetUsers(APIView):
+#     def get():
+#         users = Users.objects.all()
+    
