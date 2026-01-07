@@ -3,7 +3,7 @@ from rest_framework.views  import APIView
 from rest_framework.response import Response
 from .serializers import UserSerializer
 from rest_framework import status
-
+from .models import User
 
 
 # Create your views here.
@@ -16,7 +16,7 @@ class UserCreate(APIView):
             user = serializer.save()
             return Response ({
                 "id":user.user_id,
-                "name":user.student_number,
+                "name":user.student_name,
                 "email":user.student_mail
                 },status=status.HTTP_201_CREATED)
         
