@@ -7,11 +7,13 @@ from .models import User
 # import smtplib
 # from email.message import EmailMessage
 from .tasks import send_verification_email
+from drf_yasg.utils import swagger_auto_schema
 
 
 # Create your views here.
 
 class UserCreate(APIView):
+    @swagger_auto_schema(request_body=UserSerializer)
     def post(self, request):
         serializer = UserSerializer(data=request.data)
         if serializer.is_valid():
